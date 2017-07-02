@@ -3,11 +3,11 @@
 
 
 Node::Node(string k, int v) : K(k), V(v) {
-    isNextSet = false;
+    nextSet = false;
 }
 
-Node* Node::getNextNode() {
-    if (isNextSet) {
+Node *Node::getNextNode() {
+    if (nextSet) {
         return next;
     } else {
         return nullptr;
@@ -16,7 +16,15 @@ Node* Node::getNextNode() {
 
 void Node::setNextNode(Node *node) {
     next = node;
-    isNextSet = true;
+    nextSet = true;
+}
+
+const string &Node::getK() const {
+    return K;
+}
+
+void Node::setK(const string &K) {
+    Node::K = K;
 }
 
 
@@ -38,8 +46,8 @@ Node *LinkedList::findNode(string key) {
     if (!isEmpty) {
         Node *currentNode = head;
         while (true) {
-            if (currentNode->K != key) {
-                if (!(currentNode->isNextSet)) {
+            if (currentNode->getK() != key) {
+                if (!(currentNode->nextSet)) {
                     currentNode = nullptr;
                     break;
                 }
@@ -60,8 +68,8 @@ bool LinkedList::deleteNode(string key) {
         Node *prevNode = nullptr;
         Node *currentNode = head;
         while (true) {
-            if (currentNode->K != key) {
-                if (!(currentNode->isNextSet)) {
+            if (currentNode->getK() != key) {
+                if (!(currentNode->nextSet)) {
                     return false;
                 }
                 prevNode = currentNode;
@@ -69,7 +77,7 @@ bool LinkedList::deleteNode(string key) {
             } else {
                 if (prevNode) {
                     prevNode->next = currentNode->getNextNode();
-                    prevNode->isNextSet = currentNode->getNextNode() != nullptr;
+                    prevNode->nextSet = currentNode->getNextNode() != nullptr;
                 } else {
                     if (currentNode->getNextNode()) {
                         head = currentNode->getNextNode();
@@ -91,7 +99,7 @@ Node *LinkedList::getLastNode() {
     if (!isEmpty) {
         Node *currentNode = head;
         while (true) {
-            if (currentNode->isNextSet) {
+            if (currentNode->nextSet) {
                 currentNode = currentNode->getNextNode();
             } else {
                 break;

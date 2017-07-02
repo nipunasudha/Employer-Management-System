@@ -8,11 +8,15 @@ using namespace std;
 
 class Node {
 private:
-public:
     string K;
+public:
     int V;
-    bool isNextSet;
+    bool nextSet;
     Node *next;
+//==================================
+    const string &getK() const;
+
+    void setK(const string &K);
 
     Node(string k, int v);
 

@@ -14,11 +14,11 @@ int main() {
     link.addNode("pivi", 783);
     link.addNode("viboda", 120);
     link.addNode("chanaka", 411);
-    cout << link.getLastNode()->K << endl;
+    cout << link.getLastNode()->getK() << endl;
     cout << link.findNode("chanaka") << endl;
     cout << link.deleteNode("chanaka") << endl;
     cout << link.findNode("chanaka") << endl;
-    cout << link.getLastNode()->K << endl;
+    cout << link.getLastNode()->getK() << endl;
 
 
     return 0;
