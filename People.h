@@ -1,0 +1,8 @@
+//
+// Created by NIPUNA on 7/3/2017.
+//
+
+#ifndef CLION_EMPLOYEE_PEOPLE_H
+#define CLION_EMPLOYEE_PEOPLE_H
+
+#endif //CLION_EMPLOYEE_PEOPLE_H
