@@ -1,6 +1,6 @@
 
-#ifndef A2DD_H
-#define A2DD_H
+#ifndef LINKEDLIST
+#define LINKEDLIST
 
 #include<string>
 
@@ -26,8 +26,6 @@ public:
     bool isNextSet() const;
 
     void setNextSet(bool nextSet);
-
-    Node *getNext() const;
 
     void setNext(Node *next);
 
