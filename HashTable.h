@@ -16,9 +16,9 @@ public:
 
     HashTable(int size);
 
-    int get(string K);
+    Person * get(string K);
 
-    void put(string K, int V);
+    void put(Person *V);
 
     void remove(string K);
 

@@ -12,11 +12,12 @@ HashTable::HashTable(int size) : size(size) {
     link = new LinkedList[size];
 }
 
-int HashTable::get(string K) {
+Person *HashTable::get(string K) {
     return link[hash(K)].findNode(K)->getV();
 }
 
-void HashTable::put(string K, int V) {
+void HashTable::put(Person *V) {
+    string K = V->getName();
     link[hash(K)].addNode(K, V);
 }
 

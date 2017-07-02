@@ -1,8 +1,7 @@
 
 #include "LinkedList.h"
 
-
-Node::Node(string k, int v) : K(k), V(v) {
+Node::Node(string k, Person *v) : K(k), V(v) {
     setNextSet(false);
 }
 
@@ -31,11 +30,11 @@ void Node::setK(const string &K) {
     Node::K = K;
 }
 
-int Node::getV() const {
+Person *Node::getV() const {
     return V;
 }
 
-void Node::setV(int V) {
+void Node::setV(Person *V) {
     Node::V = V;
 }
 
@@ -52,7 +51,7 @@ LinkedList::LinkedList() {
     isEmpty = true;
 }
 
-void LinkedList::addNode(string key, int value) {
+void LinkedList::addNode(string key, Person *value) {
     Node *newNode = new Node(key, value);
     if (isEmpty) {
         head = newNode;
@@ -133,3 +132,14 @@ Node *LinkedList::getLastNode() {
     }
 
 }
+
+
+//GUIDE
+//link.addNode("nipuna", &se);
+//link.addNode("chamod", &he);
+//link.addNode("kusal", &tr);
+//cout << link.getLastNode()->getK() << endl;
+//cout << link.findNode("Kasun") << endl;
+//cout << link.deleteNode("Wimal") << endl;
+//cout << link.findNode("nipuna") << endl;
+//cout << link.getLastNode()->getV()->getMonthlyPay() << endl;

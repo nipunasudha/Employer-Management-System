@@ -3,13 +3,14 @@
 #define LINKEDLIST
 
 #include<string>
+#include "People.h"
 
 using namespace std;
 
 class Node {
 private:
     string K;
-    int V;
+    Person *V;
     bool nextSet;
     Node *next;
 public:
@@ -19,9 +20,9 @@ public:
 
     void setK(const string &K);
 
-    int getV() const;
+    Person *getV() const;
 
-    void setV(int V);
+    void setV(Person *V);
 
     bool isNextSet() const;
 
@@ -30,7 +31,7 @@ public:
     void setNext(Node *next);
 
 //-------------------------
-    Node(string k, int v);
+    Node(string k, Person *v);
 
     Node *getNextNode();
 
@@ -48,7 +49,7 @@ public:
 
     LinkedList();
 
-    void addNode(string key, int value);
+    void addNode(string key, Person *value);
 
     Node *findNode(string key);
 
