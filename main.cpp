@@ -47,11 +47,62 @@ public:
             head = newNode;
             isEmpty = false;
         } else {
-            getLast()->setNextNode(newNode);
+            getLastNode()->setNextNode(newNode);
         }
     }
 
-    Node *getLast() {
+    Node *findNode(string key) {
+        if (!isEmpty) {
+            Node *currentNode = head;
+            while (true) {
+                if (currentNode->K != key) {
+                    if (!(currentNode->isNextSet)) {
+                        currentNode = nullptr;
+                        break;
+                    }
+                    currentNode = currentNode->getNextNode();
+                } else {
+                    break;
+                }
+            }
+            return currentNode;
+        } else {
+            cout << "Linked list is empty!\n";
+            return nullptr;
+        }
+    }
+
+    bool deleteNode(string key) {
+        if (!isEmpty) {
+            Node *currentNode = head;
+            while (true) {
+                if (!(currentNode->isNextSet)) {
+                    if (currentNode->getNextNode()->K == key) {
+                        if (currentNode->getNextNode()->isNextSet) {
+                            currentNode->next = currentNode->getNextNode()->getNextNode();
+                        } else {
+                            currentNode->isNextSet = false;
+                        }
+
+                        delete currentNode->getNextNode();
+                        return true;
+                    }
+                } else {
+                    if (currentNode->K == key) {
+                        delete currentNode;
+                        //this is faulty
+                    }
+
+                }
+            }
+
+        } else {
+            cout << "Linked list is empty!\n";
+            return false;
+        }
+    }
+
+    Node *getLastNode() {
         if (!isEmpty) {
             Node *currentNode = head;
             while (true) {
@@ -74,9 +125,14 @@ public:
 int main() {
     cout << "Welcome to the program!" << endl;
     LinkedList link;
-    link.addNode("Nipuna", 123);
-    link.addNode("Chamod", 456);
-    cout << link.getLast()->K << endl;
+    link.addNode("nipuna", 123);
+    link.addNode("chamod", 456);
+    link.addNode("kusal", 356);
+    link.addNode("pivi", 783);
+    link.addNode("viboda", 120);
+    link.addNode("chanaka", 411);
+    cout << link.getLastNode()->K << endl;
+    cout << link.findNode("pivi")->K << endl;
     return 0;
 
 
