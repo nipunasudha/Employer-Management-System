@@ -6,6 +6,10 @@ Node::Node(string k, int v) : K(k), V(v) {
     setNextSet(false);
 }
 
+void Node::setNext(Node *next) {
+    Node::next = next;
+}
+
 Node *Node::getNextNode() {
     if (isNextSet()) {
         return next;
@@ -15,7 +19,7 @@ Node *Node::getNextNode() {
 }
 
 void Node::setNextNode(Node *node) {
-    next = node;
+    setNext(node);
     setNextSet(true);
 }
 
@@ -92,7 +96,7 @@ bool LinkedList::deleteNode(string key) {
                 currentNode = currentNode->getNextNode();
             } else {
                 if (prevNode) {
-                    prevNode->next = currentNode->getNextNode();
+                    prevNode->setNext(currentNode->getNextNode());
                     prevNode->setNextSet(currentNode->getNextNode() != nullptr);
                 } else {
                     if (currentNode->getNextNode()) {

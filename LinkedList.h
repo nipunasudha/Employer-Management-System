@@ -11,8 +11,8 @@ private:
     string K;
     int V;
     bool nextSet;
-public:
     Node *next;
+public:
 
 //==================================
     const string &getK() const;
@@ -27,6 +27,11 @@ public:
 
     void setNextSet(bool nextSet);
 
+    Node *getNext() const;
+
+    void setNext(Node *next);
+
+//-------------------------
     Node(string k, int v);
 
     Node *getNextNode();
