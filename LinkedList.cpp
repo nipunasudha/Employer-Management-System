@@ -3,11 +3,11 @@
 
 
 Node::Node(string k, int v) : K(k), V(v) {
-    nextSet = false;
+    setNextSet(false);
 }
 
 Node *Node::getNextNode() {
-    if (nextSet) {
+    if (isNextSet()) {
         return next;
     } else {
         return nullptr;
@@ -16,7 +16,7 @@ Node *Node::getNextNode() {
 
 void Node::setNextNode(Node *node) {
     next = node;
-    nextSet = true;
+    setNextSet(true);
 }
 
 const string &Node::getK() const {
@@ -25,6 +25,22 @@ const string &Node::getK() const {
 
 void Node::setK(const string &K) {
     Node::K = K;
+}
+
+int Node::getV() const {
+    return V;
+}
+
+void Node::setV(int V) {
+    Node::V = V;
+}
+
+bool Node::isNextSet() const {
+    return nextSet;
+}
+
+void Node::setNextSet(bool nextSet) {
+    Node::nextSet = nextSet;
 }
 
 
@@ -47,7 +63,7 @@ Node *LinkedList::findNode(string key) {
         Node *currentNode = head;
         while (true) {
             if (currentNode->getK() != key) {
-                if (!(currentNode->nextSet)) {
+                if (!(currentNode->isNextSet())) {
                     currentNode = nullptr;
                     break;
                 }
@@ -69,7 +85,7 @@ bool LinkedList::deleteNode(string key) {
         Node *currentNode = head;
         while (true) {
             if (currentNode->getK() != key) {
-                if (!(currentNode->nextSet)) {
+                if (!(currentNode->isNextSet())) {
                     return false;
                 }
                 prevNode = currentNode;
@@ -77,7 +93,7 @@ bool LinkedList::deleteNode(string key) {
             } else {
                 if (prevNode) {
                     prevNode->next = currentNode->getNextNode();
-                    prevNode->nextSet = currentNode->getNextNode() != nullptr;
+                    prevNode->setNextSet(currentNode->getNextNode() != nullptr);
                 } else {
                     if (currentNode->getNextNode()) {
                         head = currentNode->getNextNode();
@@ -99,7 +115,7 @@ Node *LinkedList::getLastNode() {
     if (!isEmpty) {
         Node *currentNode = head;
         while (true) {
-            if (currentNode->nextSet) {
+            if (currentNode->isNextSet()) {
                 currentNode = currentNode->getNextNode();
             } else {
                 break;
