@@ -67,37 +67,39 @@ public:
             }
             return currentNode;
         } else {
-            cout << "Linked list is empty!\n";
+//            cout << "Linked list is empty!\n";
             return nullptr;
         }
     }
 
     bool deleteNode(string key) {
         if (!isEmpty) {
+            Node *prevNode = nullptr;
             Node *currentNode = head;
             while (true) {
-                if (!(currentNode->isNextSet)) {
-                    if (currentNode->getNextNode()->K == key) {
-                        if (currentNode->getNextNode()->isNextSet) {
-                            currentNode->next = currentNode->getNextNode()->getNextNode();
-                        } else {
-                            currentNode->isNextSet = false;
-                        }
-
-                        delete currentNode->getNextNode();
-                        return true;
+                if (currentNode->K != key) {
+                    if (!(currentNode->isNextSet)) {
+                        return false;
                     }
+                    prevNode = currentNode;
+                    currentNode = currentNode->getNextNode();
                 } else {
-                    if (currentNode->K == key) {
-                        delete currentNode;
-                        //this is faulty
+                    if (prevNode) {
+                        prevNode->next = currentNode->getNextNode();
+                        prevNode->isNextSet = currentNode->getNextNode() != nullptr;
+                    } else {
+                        if (currentNode->getNextNode()) {
+                            head = currentNode->getNextNode();
+                        } else {
+                            isEmpty = true;
+                        }
                     }
-
+                    delete currentNode;
+                    return true;
                 }
             }
-
         } else {
-            cout << "Linked list is empty!\n";
+//            cout << "Linked list is empty!\n";
             return false;
         }
     }
@@ -112,9 +114,10 @@ public:
                     break;
                 }
             }
+
             return currentNode;
         } else {
-            cout << "Linked list is empty!\n";
+//            cout << "Linked list is empty!\n";
             return nullptr;
         }
 
@@ -132,7 +135,12 @@ int main() {
     link.addNode("viboda", 120);
     link.addNode("chanaka", 411);
     cout << link.getLastNode()->K << endl;
-    cout << link.findNode("pivi")->K << endl;
+    cout << link.findNode("chanaka") << endl;
+    cout << link.deleteNode("chanaka") << endl;
+    cout << link.findNode("chanaka") << endl;
+    cout << link.getLastNode()->K << endl;
+
+
     return 0;
 
 
