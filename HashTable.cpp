@@ -13,16 +13,17 @@ HashTable::HashTable(int size) : size(size) {
 }
 
 Person *HashTable::get(string K) {
-    return link[hash(K)].findNode(K)->getV();
+    Node *foundNode = link[hash(K)].findNode(K);
+    return foundNode != nullptr ? foundNode->getV() : nullptr;
 }
 
 void HashTable::put(Person *V) {
-    string K = V->getName();
+    string K = V->getId();
     link[hash(K)].addNode(K, V);
 }
 
-void HashTable::remove(string K) {
-    link[hash(K)].deleteNode(K);
+bool HashTable::remove(string K) {
+    return link[hash(K)].deleteNode(K);
 }
 
 unsigned HashTable::hash(string str) { //FROM STACKOVERFLOW

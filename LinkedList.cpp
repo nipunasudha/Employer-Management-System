@@ -52,6 +52,7 @@ LinkedList::LinkedList() {
 }
 
 void LinkedList::addNode(string key, Person *value) {
+//    cout << "add Key: " << key << endl;
     Node *newNode = new Node(key, value);
     if (isEmpty) {
         head = newNode;

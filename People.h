@@ -16,32 +16,46 @@ private:
     string id;
     int age;
 public:
-    Person(const string &name, int age);
+    Person(const string &id, const string &name, int age);
 
     const string &getName() const;
+
+    const string &getId() const;
 
     int getAge() const;
 
     virtual int getMonthlyPay()=0;
+
+    virtual string getInformation()=0;
 };
 
-class SalariedEmployees : public Person {
+class SalariedEmployee : public Person {
 private:
     int monthly_salary;
 public:
-    SalariedEmployees(const string &name, int age, int monthly_salary);
+    SalariedEmployee(const string &id, const string &name, int age, int monthly_salary);
 
     int getMonthlyPay();
+
+    int getMonthly_salary() const;
+
+    string getInformation();
 };
 
-class HourlyEmployees : public Person {
+class HourlyEmployee : public Person {
 private:
     int hourly_rate;
     int hours_worked;
 public:
-    HourlyEmployees(const string &name, int age, int hourly_rate, int hours_worked);
+    HourlyEmployee(const string &id, const string &name, int age, int hourly_rate, int hours_worked);
+
+    int getHourly_rate() const;
+
+    int getHours_worked() const;
 
     int getMonthlyPay();
+
+    string getInformation();
 };
 
 class Trainee : public Person {
@@ -49,9 +63,15 @@ private:
     int monthly_allowance;
     int duration;
 public:
-    Trainee(const string &name, int age, int monthly_allowance, int duration);
+    Trainee(const string &id, const string &name, int age, int monthly_allowance, int duration);
+
+    int getMonthly_allowance() const;
+
+    int getDuration() const;
 
     int getMonthlyPay();
+
+    string getInformation();
 };
 
 #endif //CLION_EMPLOYEE_PEOPLE_H

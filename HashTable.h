@@ -20,7 +20,7 @@ public:
 
     void put(Person *V);
 
-    void remove(string K);
+    bool remove(string K);
 
     unsigned hash(string str);
 };
