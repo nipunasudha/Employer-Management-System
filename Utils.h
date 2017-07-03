@@ -14,7 +14,7 @@ void split(const string &s, char delim, Out result) {
     }
 }
 
-vector<string> split(const string &s, char delim) {
+vector<string> splitStr(const string &s, char delim) {
     vector<string> elems;
     split(s, delim, back_inserter(elems));
     return elems;
