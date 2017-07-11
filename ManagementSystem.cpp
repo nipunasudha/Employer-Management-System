@@ -3,7 +3,6 @@
 //
 
 #include "ManagementSystem.h"
-#include "Utils.h"
 
 ManagementSystem::ManagementSystem(int size) {
     employeeHt = new HashTable(size);
@@ -31,7 +30,7 @@ string ManagementSystem::removeEmployee(string id) {
 
 bool ManagementSystem::addEmployee(string raw) {
 
-    vector<string> v = splitStr(raw, ',');
+    vector<string> v = utils::splitt(raw, ',');
     switch (getPersonType(v)) {
         case 1:
             employeeHt->put(new SalariedEmployee(v[0], v[1], stoi(v[2]), stoi(v[3])));

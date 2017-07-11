@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include "HashTable.h"
+#include "Utils.h"
 
 using namespace std;
 
