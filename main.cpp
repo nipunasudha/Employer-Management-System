@@ -1,23 +1,44 @@
 #include<iostream>
+#include <fstream>
 #include "ManagementSystem.h"
-
+void cls(){
+    cout << "\033[2J\033[1;1H";
+}
 using namespace std;
-
-
 int main() {
-    cout << "Welcome to the program!" << endl;
+
+    string cmd;
+    cls();
+    cout << "=== Welcome to the Employee Management System ===\n----------------------------" << endl;
+    cout << "Reading records from the file...\n" << endl;
     ManagementSystem managementSystem(10);
-    managementSystem.addEmployee("EM01,A,31,34000,10");
-    managementSystem.addEmployee("EM06,F,39,400,100");
-    managementSystem.addEmployee("TR05,F,39,400,100");
-    managementSystem.addEmployee("EM07,I,35,54000");
-    managementSystem.addEmployee("EM11,G,41,24000");
-    cout << managementSystem.getDetails("TR05") << endl;
-    cout << managementSystem.removeEmployee("TR05") << endl;
-    cout << managementSystem.getDetails("TR05") << endl;
+    string s;
+    ifstream f1("userdata");
+    while(getline(f1,s)){
+        cout<< s<<endl;
+        managementSystem.addEmployee(s);
+    }
+    cout << "\nLoading data OK!\nPress Enter to Continue...\n----------------------------"<<endl;
+    getline(cin, cmd);
+    cls();
+    while(true){ 
+        cout << "=== Main menu ==="<<endl; 
+        getline(cin, cmd);
+        if(cmd=="q"){
+            break;
+        }else if(cmd=="p"){
+            
+        }else{
+            cout<<"Invalid command."<<endl;
+        }
+    }
+
+    //cout << managementSystem.getDetails("TR05") << endl;
+    //cout << managementSystem.removeEmployee("TR05") << endl;
+    //cout << managementSystem.getDetails("TR05") << endl;
 
 
-    cout << "END\n";
+    cout << "Program Ended.\n";
     return 0;
 
 

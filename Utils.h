@@ -1,3 +1,5 @@
+#ifndef UTILS
+#define UTILS
 #include <string>
 #include <sstream>
 #include <vector>
@@ -20,6 +22,8 @@ vector<string> splitStr(const string &s, char delim) {
     return elems;
 }
 
+
 //GUIDE
 //string text = "Let,me,split,this,into,words";
 //cout << split(text, ',')[2];
+#endif
