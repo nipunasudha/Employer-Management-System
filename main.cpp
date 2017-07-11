@@ -45,8 +45,12 @@ int main() {
             cmd=split(rawcmd,' ');
             if(cmd.at(0)=="q"){
                 break;
-            }else if(cmd.at(0)=="p"){
-                cout<<cmd.at(1)<<endl;
+            }else if(cmd.at(0)=="add"){
+                cout<<managementSystem.addEmployee(cmd.at(1))<<endl;
+            }else if(cmd.at(0)=="remove"){
+                cout<<managementSystem.removeEmployee(cmd.at(1))<<endl;
+            }else if(cmd.at(0)=="view"){
+                cout<<managementSystem.getDetails(cmd.at(1))<<endl;
             }else{
                 cout<<"Invalid command."<<endl;
             }
