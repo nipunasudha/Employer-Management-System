@@ -31,6 +31,14 @@ string ManagementSystem::makePayList(){
     }
     return payList;
 }
+string ManagementSystem::makeTotal(){
+    vector<Person*> v=getAllConcat();
+    int payTotal=0;
+    for(int i=0;i<v.size();i++){
+       payTotal+=v[i]->getMonthlyPay();
+    }
+    return "Summary\n--------------------\nTotal Workers : "+to_string(v.size())+"\nTotalPayment : "+to_string(payTotal)+"\n";
+}
 string ManagementSystem::getDetails(string id) {
     Person *foundPerson;
     if (isEmployer(id)) {

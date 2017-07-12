@@ -21,6 +21,7 @@ class ManagementSystem {
         vector<Person*> getAllConcat();
         string makeNameList();
         string makePayList();
+        string makeTotal();
         string getDetails(string id);
 
         string removeEmployee(string id);

@@ -43,6 +43,8 @@ int main() {
                 cout<<managementSystem.makeNameList()<<endl;
             }else if(cmd.at(0)=="paylist"){
                 cout<<managementSystem.makePayList()<<endl;
+            }else if(cmd.at(0)=="total"){
+                cout<<managementSystem.makeTotal()<<endl;
             }else{
                 cout<<"Invalid command."<<endl;
             }
