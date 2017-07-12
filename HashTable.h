@@ -22,6 +22,8 @@ public:
 
     bool remove(string K);
 
+    vector<Person*> getAll();
+
     unsigned hash(string str);
 };
 

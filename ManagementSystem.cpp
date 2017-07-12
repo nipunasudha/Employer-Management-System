@@ -7,6 +7,8 @@
 ManagementSystem::ManagementSystem(int size) {
     employeeHt = new HashTable(size);
     traineeHt = new HashTable(size);
+    employeeHt->getAll();
+    traineeHt->getAll();
 }
 
 string ManagementSystem::getDetails(string id) {

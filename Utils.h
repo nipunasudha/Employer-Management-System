@@ -31,6 +31,11 @@ namespace utils{
     inline void cls(){
         cout << "\033[2J\033[1;1H";
     }
+    template<typename T>
+    inline bool concatVec(vector<T> &vector1,vector<T> &vector2){
+        vector1.insert( vector1.end(), vector2.begin(), vector2.end() );
+        return true;
+    }
 }
 
 #endif

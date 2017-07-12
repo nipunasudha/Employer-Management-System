@@ -1,6 +1,7 @@
 #include<iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 #include <fstream>
 #include "Utils.h"
 #include "ManagementSystem.h"
@@ -9,6 +10,7 @@ int main() {
     string rawcmd;
     vector<string> cmd;
     utils::cls();
+
     cout << "=== Welcome to the Employee Management System ===\n----------------------------" << endl;
     cout << "Reading records from the file...\n" << endl;
     ManagementSystem managementSystem(10);
