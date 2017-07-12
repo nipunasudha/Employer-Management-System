@@ -22,10 +22,12 @@ int main() {
     getline(cin, rawcmd);
     utils::cls();
     while(true){ 
-        cout << "=== Main menu ==="<<endl; 
+        cout << "---------------------------------------"<<endl; 
+        cout << "Enter a command or q to exit.\nX:/>"; 
         try{
             getline(cin, rawcmd);
             cmd=utils::splitt(rawcmd,' ');
+            cout<<endl;
             if(cmd.at(0)=="q"){
                 break;
             }else if(cmd.at(0)=="add"){
