@@ -1,4 +1,4 @@
-
+#include<vector>
 #include "LinkedList.h"
 
 Node::Node(string k, Person *v) : K(k), V(v) {
@@ -52,7 +52,7 @@ LinkedList::LinkedList() {
 }
 
 void LinkedList::addNode(string key, Person *value) {
-//    cout << "add Key: " << key << endl;
+    //    cout << "add Key: " << key << endl;
     Node *newNode = new Node(key, value);
     if (isEmpty) {
         head = newNode;
@@ -78,7 +78,7 @@ Node *LinkedList::findNode(string key) {
         }
         return currentNode;
     } else {
-//            cout << "Linked list is empty!\n";
+        //            cout << "Linked list is empty!\n";
         return nullptr;
     }
 }
@@ -110,7 +110,7 @@ bool LinkedList::deleteNode(string key) {
             }
         }
     } else {
-//            cout << "Linked list is empty!\n";
+        //            cout << "Linked list is empty!\n";
         return false;
     }
 }
@@ -128,12 +128,26 @@ Node *LinkedList::getLastNode() {
 
         return currentNode;
     } else {
-//            cout << "Linked list is empty!\n";
+        //            cout << "Linked list is empty!\n";
         return nullptr;
     }
 
 }
-
+vector<Person*> LinkedList::traverse(){
+    vector<Person*> personVec={}; 
+    if (!isEmpty) { 
+        Node *currentNode = head; 
+        while (true) { 
+            personVec.push_back(currentNode->getV()); 
+            if (currentNode->isNextSet()) { 
+                currentNode = currentNode->getNextNode(); 
+            } else { 
+                break; 
+            } 
+        } 
+    } 
+    return personVec; 
+} 
 
 //GUIDE
 //link.addNode("nipuna", &se);

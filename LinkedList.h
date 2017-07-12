@@ -3,6 +3,7 @@
 #define LINKEDLIST
 
 #include<string>
+#include<vector>
 #include "People.h"
 
 using namespace std;
@@ -37,7 +38,6 @@ public:
 
     void setNextNode(Node *node);
 
-
 };
 
 
@@ -56,6 +56,8 @@ public:
     bool deleteNode(string key);
 
     Node *getLastNode();
+
+    vector<Person*> traverse();
 };
 
 
