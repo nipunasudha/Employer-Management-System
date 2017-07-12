@@ -23,6 +23,7 @@ int main() {
     cout << "\nLoading data OK!\nPress Enter to Continue...\n----------------------------"<<endl;
     getline(cin, rawcmd);
     utils::cls();
+    managementSystem.makeNameList();
     while(true){ 
         cout << "---------------------------------------"<<endl; 
         cout << "Enter a command or q to exit.\nX:/>"; 
@@ -38,9 +39,12 @@ int main() {
                 cout<<managementSystem.removeEmployee(cmd.at(1))<<endl;
             }else if(cmd.at(0)=="view"){
                 cout<<managementSystem.getDetails(cmd.at(1))<<endl;
+            }else if(cmd.at(0)=="list"){
+                cout<<managementSystem.makeNameList()<<endl;
             }else{
                 cout<<"Invalid command."<<endl;
             }
+            //makeNameList()
         }catch(...){
 
             cout<<"Invalid command (E)"<<endl;

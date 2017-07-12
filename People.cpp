@@ -10,7 +10,7 @@ Person::Person(const string &id, const string &name, int age) : id(id), name(nam
 
 }
 
-const string &Person::getName() const {
+string Person::getName() const {
     return name;
 }
 
@@ -18,7 +18,7 @@ int Person::getAge() const {
     return age;
 }
 
-const string &Person::getId() const {
+string Person::getId() const {
     return id;
 }
 

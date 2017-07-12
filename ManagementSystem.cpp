@@ -1,16 +1,28 @@
 //
 // Created by NIPUNA on 7/3/2017.
 //
-
+#include "Utils.h"
 #include "ManagementSystem.h"
 
 ManagementSystem::ManagementSystem(int size) {
     employeeHt = new HashTable(size);
     traineeHt = new HashTable(size);
-    employeeHt->getAll();
-    traineeHt->getAll();
 }
+vector<Person*> ManagementSystem::getAllConcat(){
 
+    vector<Person*> v={};
+    utils::concatVec(v,employeeHt->getAll());
+    utils::concatVec(v,traineeHt->getAll());
+    return v;
+}
+string ManagementSystem::makeNameList(){
+    vector<Person*> v=getAllConcat();
+    string nameList="ID     Name\n--------------------\n";
+    for(int i=0;i<v.size();i++){
+       nameList+=v[i]->getId() +"  "+ v[i]->getName()+"\n";
+    }
+    return nameList;
+}
 string ManagementSystem::getDetails(string id) {
     Person *foundPerson;
     if (isEmployer(id)) {

@@ -18,9 +18,9 @@ private:
 public:
     Person(const string &id, const string &name, int age);
 
-    const string &getName() const;
+    string getName() const;
 
-    const string &getId() const;
+     string getId() const;
 
     int getAge() const;
 
