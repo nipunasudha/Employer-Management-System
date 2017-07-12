@@ -23,6 +23,14 @@ string ManagementSystem::makeNameList(){
     }
     return nameList;
 }
+string ManagementSystem::makePayList(){
+    vector<Person*> v=getAllConcat();
+    string payList="ID     Name     Pay Amount\n-------------------------------\n";
+    for(int i=0;i<v.size();i++){
+       payList+=v[i]->getId() +"  "+ v[i]->getName()+"  "+ to_string(v[i]->getMonthlyPay())+"\n";
+    }
+    return payList;
+}
 string ManagementSystem::getDetails(string id) {
     Person *foundPerson;
     if (isEmployer(id)) {

@@ -20,6 +20,7 @@ class ManagementSystem {
         ManagementSystem(int size);
         vector<Person*> getAllConcat();
         string makeNameList();
+        string makePayList();
         string getDetails(string id);
 
         string removeEmployee(string id);
