@@ -37,14 +37,18 @@ int main() {
                 cout<<managementSystem.addEmployee(cmd.at(1))<<endl;
             }else if(cmd.at(0)=="remove"){
                 cout<<managementSystem.removeEmployee(cmd.at(1))<<endl;
-            }else if(cmd.at(0)=="view"){
+            }else if(cmd.at(0)=="view" || cmd.at(0)=="get_details"){
                 cout<<managementSystem.getDetails(cmd.at(1))<<endl;
-            }else if(cmd.at(0)=="list"){
+            }else if(cmd.at(0)=="list" || cmd.at(0)=="list_all"){
                 cout<<managementSystem.makeNameList()<<endl;
-            }else if(cmd.at(0)=="paylist"){
+            }else if(cmd.at(0)=="paylist" || cmd.at(0)=="list_monthly_pay"){
                 cout<<managementSystem.makePayList()<<endl;
-            }else if(cmd.at(0)=="total"){
+            }else if(cmd.at(0)=="total" || cmd.at(0)=="get_total_pay"){
                 cout<<managementSystem.makeTotal()<<endl;
+            }else if(cmd.at(0)=="help"){
+                cout<<utils::helpText()<<endl;
+            }else if(cmd.at(0)=="clear" || cmd.at(0)=="c"){
+                utils::cls();
             }else{
                 cout<<"Invalid command."<<endl;
             }
